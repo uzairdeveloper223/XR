@@ -102,7 +102,7 @@ ${goto 1650}${font4}${color1}󰋊  DISK  ${color8}/
 ${goto 1650}${color2}${fs_used /} / ${fs_size /}  ${color8}(${fs_used_perc /}%)
 ${goto 1650}${color7}${fs_bar 4,130 /}
 ${goto 1650}${font4}${color1}READ  ${color2}${diskio_read}  ${color1}  WRITE  ${color2}${diskio_write}
-${goto 1650}${font4}${color1}󰂄  BATTERY  ${color2}${battery_percent BAT0}%  ${color8}${battery_short BAT0}
+${goto 1650}${font4}${color1}󰂄  BATTERY  ${color2}${battery_percent BAT0}%
 ${goto 1650}${color7}${battery_bar 4,130 BAT0}
 ${goto 1650}${font4}${color1}󰤨 NET ${font4}${color1}󰁝 ${color2}${upspeed wlp0s20f3}   ${font4}${color1}󰁅 ${color2}${downspeed wlp0s20f3}
 ${goto 1650}${color1}󰩟 IP    ${color2}${addr wlp0s20f3}
