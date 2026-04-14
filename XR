@@ -4,7 +4,7 @@
 
 conky.config = {
 
-    -- ── This Config is configured for Wayland ────────
+    -- ── This Config is configured for X11 but works on wayland ────────
     out_to_wayland          = false,
     out_to_x                = true,
     out_to_console          = false,
