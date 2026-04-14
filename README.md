@@ -1,4 +1,6 @@
 # XR Conky Theme
+[![Made with Conky](https://img.shields.io/badge/Made%20with-Conky-blue)](https://github.com/brndnmtthws/conky)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A minimal, dual-panel Conky configuration designed for desktop integration. XR displays a large clock and date on the left, with system resource monitors aligned on the right. All text is rendered using Nerd Font glyphs for a crisp, icon-driven interface.
 
