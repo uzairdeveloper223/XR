@@ -1,0 +1,109 @@
+-- ╔═══════════════════════════════════════╗
+-- ║           XR Conky Config             ║
+-- ╚═══════════════════════════════════════╝
+
+conky.config = {
+
+    -- ── This Config is configured for Wayland ────────
+    out_to_wayland          = false,
+    out_to_x                = true,
+    out_to_console          = false,
+    out_to_stderr           = false,
+
+    -- ── Window ────────
+    own_window              = true,
+    own_window_type         = 'desktop',
+    own_window_transparent  = true,
+    own_window_argb_visual  = true,
+    own_window_argb_value   = 0,
+    own_window_colour       = '000000',
+    own_window_hints        = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+
+    -- ── Position (top-left anchor, wide window) ────────
+    alignment               = 'top_left',
+    gap_x                   = 40,
+    gap_y                   = 28,
+    minimum_width           = 1840,
+    maximum_width           = 1840,
+    minimum_height          = 10,
+
+    -- ── Rendering ────────
+    background              = true,
+    double_buffer           = true,
+    draw_shades             = false,
+    draw_outline            = false,
+    draw_borders            = false,
+    draw_graph_borders      = false,
+    use_xft                 = true,
+    xftalpha                = 1.0,
+    forced_redraw           = false,
+
+    -- ── Update ────────
+    update_interval         = 1,
+    total_run_times         = 0,
+    cpu_avg_samples         = 3,
+    net_avg_samples         = 2,
+    diskio_avg_samples      = 2,
+
+    -- ── Format ────────
+    format_human_readable   = true,
+    no_buffers              = true,
+    short_units             = true,
+    temperature_unit        = 'celsius',
+    top_name_width          = 12,
+    pad_percents            = 0,
+
+    -- ── Fonts ────────
+    font  = 'JetBrainsMono Nerd Font Mono:size=10',
+    font1 = 'JetBrainsMono Nerd Font Mono:bold:size=78',
+    font2 = 'JetBrainsMono Nerd Font Mono:bold:size=22',
+    font3 = 'JetBrainsMono Nerd Font Mono:size=13',
+    font4 = 'JetBrainsMono Nerd Font Mono:bold:size=10',
+    font5 = 'JetBrainsMono Nerd Font Mono:size=9',
+
+    -- ── Palette ────────
+    default_color           = 'AAAAAA',   -- base text (grey)
+    color1                  = 'CC0000',   -- blood red accent
+    color2                  = 'FF2222',   -- lighter red
+    color3                  = 'FFFFFF',   -- pure white
+    color4                  = '444444',   -- dimmed/separators
+    color5                  = 'FF5555',   -- warning / hot values
+    color6                  = '222222',   -- very dark
+    color7                  = 'BB0000',   -- dark red 
+    color8                  = '888888',   -- mid-grey
+
+    -- ── Bar defaults ────────
+    default_bar_height      = 4,
+    default_bar_width       = 130,
+    default_graph_height    = 20,
+    default_graph_width     = 130,
+}
+
+-- ╔══════════════════════════════════════════════════════════════════╗
+-- ║  LAYOUT GUIDE                                                    ║
+-- ║  Left block  → HH / MM / DAY / DATE  (big clock, col ~0-260)     ║
+-- ║  Right block → System stats          (col ~1500 via goto)        ║
+-- ╚══════════════════════════════════════════════════════════════════╝
+
+conky.text = [[
+\
+${voffset 300}${goto 48}${font1}${color3}${time %H}
+${voffset -20}${goto 48}${font1}${color3}${time %M}
+${voffset -80}${goto 45}${font2}${color1}${time %A}
+${goto 40}${font3}${color2}${time %d}${color4} / ${color2}${time %m}${color4} / ${color2}${time %Y}
+
+${voffset -330}${goto 1650}${font4}${color1}󰻠  CPU
+${goto 1650}${color2}${cpu cpu0}% all cores  ${color8}(${freq_g}GHz)
+${goto 1650}${color7}${cpubar cpu0 4,130}
+${goto 1650}${font4}${color1}󰘚  RAM
+${goto 1650}${color2}${mem} / ${memmax}  ${color8}(${memperc}%)
+${goto 1650}${color7}${membar 4,130}
+${goto 1650}${font4}${color1}󰋊  DISK  ${color8}/
+${goto 1650}${color2}${fs_used /} / ${fs_size /}  ${color8}(${fs_used_perc /}%)
+${goto 1650}${color7}${fs_bar 4,130 /}
+${goto 1650}${font4}${color1}READ  ${color2}${diskio_read}  ${color1}  WRITE  ${color2}${diskio_write}
+${goto 1650}${font4}${color1}󰂄  BATTERY  ${color2}${battery_percent BAT0}%  ${color8}${battery_short BAT0}
+${goto 1650}${color7}${battery_bar 4,130 BAT0}
+${goto 1650}${font4}${color1}󰤨 NET ${font4}${color1}󰁝 ${color2}${upspeed wlp0s20f3}   ${font4}${color1}󰁅 ${color2}${downspeed wlp0s20f3}
+${goto 1650}${color1}󰩟 IP    ${color2}${addr wlp0s20f3}
+]]
