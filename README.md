@@ -53,7 +53,7 @@ A minimal, dual-panel Conky configuration designed for desktop integration. XR d
 
 5. **Launch Conky**  
    ```bash
-   conky -c ~/.config/conky/XR/XR &
+   conky -c ~/.config/conky/XR &
    ```
 
    To start automatically, add the command above to your window manager's startup file or `~/.xinitrc`.
